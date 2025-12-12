@@ -358,15 +358,72 @@ console.log(sumAllTheYears(movies));
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
+function searchByTitle(string) {
+  const movieFinder = [];
+
+  for (let i = 0; i < movies.length; i++) {
+    const title = movies[i].Title.toLowerCase();
+    const search = string.toLowerCase();
+
+    if (title.includes(search)) {
+      movieFinder.push(movies[i]);
+    }
+  }
+
+  return movieFinder;
+}
+
+console.log(searchByTitle("lord"));
+
+/* Oppure come sotto è più leggibile ma mi sono super incasinata con le parentesi e i punti ... potevo evitare*/
+
+const searchByTitle1 = (string) => {
+  return movies.filter((movie) => movie.Title.toLowerCase().includes(string.toLowerCase()));
+};
+
+console.log(searchByTitle1("Avenger"));
+
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+const searchAndDivide = (string) => {
+  const obj = {
+    match: [],
+    unmatch: [],
+  };
+
+  movies.forEach((movie) => {
+    if (movie.Title.toLowerCase().includes(string.toLowerCase())) {
+      obj.match.push(movie);
+    } else {
+      obj.unmatch.push(movie);
+    }
+  });
+
+  return obj;
+};
+
+console.log(searchAndDivide("war"));
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+function removeIndex(index) {
+  const filteredMovies = [];
 
+  for (let i = 0; i < movies.length; i++) {
+    if (i !== index) {
+      filteredMovies.push(movies[i]);
+    }
+  }
+
+  return filteredMovies;
+}
+
+console.log(removeIndex(3));
+
+/*anche qua potrei usare .filter per risolverla*/
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
