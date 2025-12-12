@@ -70,21 +70,54 @@ console.log(me);
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
+const dice = () => Math.floor(Math.random() * 6) + 1;
+
+console.log("dice", dice());
 
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
+
+const whoIsBigger = (numb1, numb2) => {
+  if (numb1 > numb2) {
+    console.log(numb1);
+  } else {
+    console.log(numb2);
+  }
+};
+
+whoIsBigger(16, 18);
+whoIsBigger(123, 32);
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
+const splitMe = (string) => {
+  const newArray = string.split(" ");
+  return newArray;
+};
+
+console.log("string split:", splitMe("I love coding"));
 
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+
+const deleteOne = (string, bool) => {
+  if (bool === true) {
+    string = string.slice(1);
+  } else {
+    string = string.slice(0, string.length - 1);
+  }
+
+  return string;
+};
+
+console.log(deleteOne("Proviamo se funziona", 10 > 100));
+console.log(deleteOne("Proviamo se funziona", 1000 !== 100));
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -95,6 +128,29 @@ console.log(me);
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+
+const isThisEmail = (string) => {
+  let hasAt = false;
+  let hasDot = false;
+
+  for (let i = 0; i < string.length; i++) {
+    const character = string[i];
+
+    if (character === "@") {
+      hasAt = true;
+    }
+
+    if (character === ".") {
+      hasDot = true;
+    }
+  }
+
+  return hasAt && hasDot;
+};
+
+console.log(isThisEmail("prova@email.com"));
+console.log(isThisEmail("provasenzaatemail.com"));
+console.log(isThisEmail("provasenzapunto@emailcom"));
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollDice" che riceve un numero come parametro.
@@ -108,6 +164,13 @@ console.log(me);
       values: [3, 3, 4]
   }
 */
+const rollDice = (numb) => {
+const result = {
+  sum: 0,
+  values: [],
+};
+
+
 
 // Arrays & Oggetti
 
