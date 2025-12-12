@@ -13,7 +13,7 @@ REGOLE
   Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
 */
 let sum = 10 + 20;
-console.log(sum);
+console.log("sum =", sum);
 
 /*oppure 
 
@@ -30,7 +30,7 @@ console.log(sum);
 */
 const random = Math.floor(Math.random() * 21);
 
-console.log(random);
+console.log("random=", random);
 
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
@@ -125,6 +125,22 @@ console.log(deleteOne("Proviamo se funziona", 1000 !== 100));
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+function onlyLetters(string) {
+  let withoutNumbers = "";
+
+  for (let i = 0; i < string.length; i++) {
+    const character = string[i];
+
+    if (!"0123456789".includes(character)) {
+      withoutNumbers += character;
+    }
+  }
+
+  return withoutNumbers;
+}
+
+console.log(onlyLetters("I have 4 dogs"));
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
@@ -164,6 +180,26 @@ console.log(isThisEmail("provasenzapunto@emailcom"));
       values: [3, 3, 4]
   }
 */
+
+function rollDice(numb) {
+  const obj = {};
+
+  obj.sum = 0;
+  obj.values = [];
+
+  for (let i = 0; i < numb; i++) {
+    const roll = dice();
+
+    obj.values.push(roll);
+
+    obj.sum = obj.sum + roll;
+  }
+
+  return obj;
+}
+
+console.log(rollDice(3));
+console.log(rollDice(7));
 
 // Arrays & Oggetti
 
