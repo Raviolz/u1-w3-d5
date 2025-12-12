@@ -156,30 +156,80 @@ console.log(me);
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-
+const selected = document.getElementById("container");
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-
+const selected1 = document.getElementsByTagName("td");
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+const tagText = () => {
+  const td = document.querySelectorAll("td");
+  for (let i = 0; i < td.length; i++) {
+    tdText = td[i].innerText;
+    console.log(tdText);
+  }
+};
 
+tagText();
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const ALinkBackground = () => {
+  const a = document.querySelectorAll("a");
+  for (let i = 0; i < a.length; i++) {
+    a[i].style.backgroundColor = "red";
+  }
+};
+
+ALinkBackground();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+const AddNewLi = () => {
+  const list = document.getElementById("myList");
+  const newLi = document.createElement("li");
+  newLi.innerText = "Nuovo elemento aggiunto";
+  list.appendChild(newLi);
+};
+
+AddNewLi();
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+/*const EmptyList = () => {
+  const list = document.getElementById("myList");
+  const Li = document.querySelectorAll("li");
+
+  for (let i = 0; i < Li.length; i++) Li[i].innerText = "";
+};
+
+EmptyList();
+
+
+Ma forse è meglio come sotto perchè come sopra rimangono i pallini*/
+
+const EmptyList = () => {
+  const ul = document.getElementById("myList");
+  ul.innerHTML = "";
+};
+
+/*EmptyList();*/
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const AddClassTestToTr = () => {
+  const tr = document.getElementsByTagName("tr");
+  for (let i = 0; i < tr.length; i++) tr[i].classList.add("Classe-Aggiunta");
+};
+
+AddClassTestToTr();
 
 // [EXTRA] JS Avanzato
 
